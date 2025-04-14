@@ -1,0 +1,19 @@
+ <head>
+   <title>Блог</title>
+</head>
+<body>
+     <header>
+       <h1> <a href="">Электронный блог</a> </h1>
+     </header>
+     <div class="container">
+       {% block content %}
+         {% for i in object_list %}
+             <div class="post">
+             <h3><a href="{% url 'detail' i.pk %}">{{ i.title }}</a></h3>
+                 <p>{{ i.published_date }}</p>
+
+            </div>
+         {% endfor %}
+        {% endblock content %}
+     </div>
+ </body>

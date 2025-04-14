@@ -1,0 +1,18 @@
+{% load static %}
+ <head>
+   <title>Блог</title>
+ </head>
+ <body>
+     <header>
+       <h1> <a href="">Электронный блог</a> </h1>
+     </header>
+     <div class="container">
+     {% block content %}
+         <div class="details">
+         <h2>{{ post.title }}</h2>
+         <p>{{ post.text|linebreaksbr }}</p>
+             <p>{{ post.author }}  Опубликовано: {{ post.published_date }}</p>
+         </div>
+     {% endblock content %}
+     </div>
+ </body>
