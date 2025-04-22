@@ -19,10 +19,14 @@ from turtledemo.penrose import start
 from django.contrib import admin
 from django.urls import path, include
 from posts import views
+from posts.views import PostViewSet
+from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.start_window),
-    path('posts/', include('posts.urls')),
+    path('home/', views.start_window),
+    path('', include('posts.urls')),
     path('posts/<int:pk>', views.PostDetailView.as_view(), name='detail'),
+    path('eblog/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('eblog/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
