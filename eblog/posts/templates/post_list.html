@@ -9,9 +9,7 @@
        {% block content %}
          {% for i in object_list %}
             <form method="POST">
-                {% csrf_token %}
-                <input type='text'>
-                <input type='submit'>
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
             </form>
             <div class="post">
                 <h3><a href="{% url 'detail' i.pk %}">{{ i.title }}</a></h3>
