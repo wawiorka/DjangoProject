@@ -26,7 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.start_window),
     path('', include('posts.urls')),
-    path('posts/<int:pk>', views.PostDetailView.as_view(), name='detail'),
-    path('eblog/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('eblog/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('posts/<int:pk>', views.PostDetailView.as_view(), name='detail'),
+    path('auth/', include('users.urls')),
 ]
